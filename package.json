@@ -1,0 +1,31 @@
+{
+  "name": "cornicione",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev -w @cornicione/server\" \"npm run dev -w @cornicione/client\"",
+    "dev:client": "npm run dev -w @cornicione/client",
+    "dev:server": "npm run dev -w @cornicione/server",
+    "build": "npm run build -w @cornicione/server && npm run build -w @cornicione/client",
+    "build:client": "npm run build -w @cornicione/client",
+    "build:server": "npm run build -w @cornicione/server",
+    "start": "concurrently -n server,client -c blue,green \"npm run start -w @cornicione/server\" \"npm run start -w @cornicione/client\"",
+    "typecheck": "npm run typecheck -w @cornicione/server && npm run typecheck -w @cornicione/client",
+    "lint": "npm run lint -w @cornicione/server && npm run lint -w @cornicione/client",
+    "format": "prettier --write \"{client,server,shared}/**/*.{ts,tsx}\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3"
+  }
+}
