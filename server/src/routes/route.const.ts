@@ -5,6 +5,7 @@ export enum API_ROUTES {
   Orders = '/orders',
   Leads = '/leads',
   Auth = '/auth',
+  OpeningHours = '/opening-hours',
 }
 
 export const HEALTH_ROUTE = '/health';

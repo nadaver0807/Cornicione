@@ -3,6 +3,9 @@
 import { heIL } from '@mui/material/locale';
 import { createTheme } from '@mui/material/styles';
 
+/** Montserrat קודם — הוא נטול גליפים עבריים, ולכן עברית נופלת ל-Assistant. */
+const FONT_FAMILY = 'var(--font-latin), var(--font-hebrew), sans-serif';
+
 /** שפה עיצובית: שחור עמוק, לבן, מינימליזם — מחוברת ללוגו השחור של Cornicione. */
 const theme = createTheme(
   {
@@ -17,7 +20,7 @@ const theme = createTheme(
     },
     shape: { borderRadius: 2 },
     typography: {
-      fontFamily: 'var(--font-sans)',
+      fontFamily: FONT_FAMILY,
       h1: { fontSize: '4rem', fontWeight: 300, lineHeight: 1.05, letterSpacing: '-0.03em' },
       h2: { fontSize: '2.5rem', fontWeight: 300, lineHeight: 1.15, letterSpacing: '-0.02em' },
       h3: { fontSize: '1.625rem', fontWeight: 400, lineHeight: 1.3, letterSpacing: '-0.01em' },
