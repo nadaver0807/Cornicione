@@ -28,9 +28,9 @@ export const createOrderSchema = z
     items: z.array(orderItemSchema).min(1, 'יש לבחור לפחות פריט אחד'),
     deliveryFee: nonNegativeNumber(),
   })
-  .refine(
-    (order) => order.orderType !== OrderType.Delivery || Boolean(order.address?.trim()),
-    { message: 'כתובת נדרשת להזמנת משלוח', path: ['address'] },
-  );
+  .refine((order) => order.orderType !== OrderType.Delivery || Boolean(order.address?.trim()), {
+    message: 'כתובת נדרשת להזמנת משלוח',
+    path: ['address'],
+  });
 
 export type CreateOrderPayload = z.infer<typeof createOrderSchema>;

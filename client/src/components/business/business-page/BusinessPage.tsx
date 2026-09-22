@@ -16,17 +16,17 @@ import { type FC } from 'react';
 const BusinessPage: FC = () => (
   <Box>
     <PageHero
-      eyebrow='03 — שיתופי פעולה'
-      title='Cornicione & More'
-      subtitle='ערבי פיצה, פופ־אפים ושיתופי פעולה עם מקומות מארחים.'
+      eyebrow="03 — שיתופי פעולה"
+      title="Cornicione × עסקים"
+      subtitle="ערבי פיצה, פופ־אפים ושיתופי פעולה עם מקומות מארחים."
     />
     <PageSection>
-      <Box component='video' src={NONO_VIDEO_URL} controls playsInline sx={Styles.video} />
+      <Box component="video" src={NONO_VIDEO_URL} controls playsInline sx={Styles.video} />
       <Box sx={Styles.gallery}>
         {NONO_GALLERY.map((image) => (
           <Box
             key={image.src}
-            component='img'
+            component="img"
             src={image.src}
             alt={image.alt}
             sx={Styles.galleryImage}
@@ -34,7 +34,7 @@ const BusinessPage: FC = () => (
         ))}
       </Box>
     </PageSection>
-    <PageSection eyebrow='איך זה עובד' title='להביא את Cornicione למקום שלכם'>
+    <PageSection eyebrow="איך זה עובד" title="להביא את Cornicione למקום שלכם">
       {BUSINESS_PARAGRAPHS.map((paragraph) => (
         <Typography key={paragraph} sx={Styles.paragraph}>
           {paragraph}
@@ -43,7 +43,7 @@ const BusinessPage: FC = () => (
     </PageSection>
     <PageSection>
       <Box sx={Styles.ctaBox}>
-        <Typography variant='h2' gutterBottom>
+        <Typography variant="h2" gutterBottom>
           רוצים לעבוד עם Cornicione?
         </Typography>
         <Typography sx={Styles.paragraph}>
@@ -52,7 +52,7 @@ const BusinessPage: FC = () => (
         <Box sx={Styles.formWrapper}>
           <LeadForm
             leadType={LeadType.Business}
-            submitLabel='שליחת פנייה'
+            submitLabel="שליחת פנייה"
             whatsappMessage={WHATSAPP_MESSAGE.business}
             withBusinessName
           />

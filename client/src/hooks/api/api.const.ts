@@ -5,5 +5,4 @@ export enum ApiRoute {
   Orders = '/orders',
   Leads = '/leads',
   Auth = '/auth',
-  OpeningHours = '/opening-hours',
 }

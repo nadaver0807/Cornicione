@@ -6,8 +6,17 @@ const notice: SxProps<Theme> = {
   mt: 3,
 };
 
-const statusRow: SxProps<Theme> = {
+const windowChip: SxProps<Theme> = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: 1.5,
   mt: 4,
+  px: 2.5,
+  py: 1.25,
+  border: '1px solid',
+  borderColor: 'divider',
+  letterSpacing: '0.14em',
+  fontSize: '0.8rem',
 };
 
 const categoryTitle: SxProps<Theme> = {
@@ -32,6 +41,6 @@ const categoryGroup: SxProps<Theme> = {
   mb: 10,
 };
 
-const Styles = { notice, statusRow, categoryTitle, grid, state, categoryGroup };
+const Styles = { notice, windowChip, categoryTitle, grid, state, categoryGroup };
 
 export default Styles;
