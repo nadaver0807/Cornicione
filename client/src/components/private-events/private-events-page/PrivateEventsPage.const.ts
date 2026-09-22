@@ -1,7 +1,9 @@
 export const EVENT_GALLERY = [
-  { src: '/images/events/event-1.jpg', alt: 'טאבון באירוע פרטי' },
-  { src: '/images/events/event-2.jpg', alt: 'פיצות באירוע' },
-  { src: '/images/events/event-3.jpg', alt: 'אווירה באירוע' },
+  { src: '/images/events/nono-1.jpeg', alt: 'טאבון באירוע פרטי' },
+  { src: '/images/events/nono-2.jpeg', alt: 'פיצות באירוע' },
+  { src: '/images/events/nono-3.jpeg', alt: 'אווירה באירוע' },
+  { src: '/images/events/nono-4.jpeg', alt: 'פיצות באירוע' },
+  { src: '/images/events/nono-5.jpeg', alt: 'טאבון באירוע פרטי' },
 ];
 
 export const EVENT_PARAGRAPHS = [

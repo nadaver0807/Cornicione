@@ -49,6 +49,25 @@ const actions: SxProps<Theme> = {
   gap: 0.5,
 };
 
-const Styles = { appBar, toolbar, brand, nav, cartButton, menuButton, actions };
+const secondaryNav: SxProps<Theme> = {
+  display: { xs: 'none', lg: 'flex' },
+  alignItems: 'center',
+  gap: 3,
+  pl: 3,
+  ml: 1,
+  borderLeft: '1px solid',
+  borderColor: 'divider',
+};
+
+const Styles = {
+  appBar,
+  toolbar,
+  brand,
+  nav,
+  secondaryNav,
+  cartButton,
+  menuButton,
+  actions,
+};
 
 export default Styles;

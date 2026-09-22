@@ -1,4 +1,5 @@
 import { Lead } from '@/lead/Lead.entity';
+import { OpeningHours } from '@/opening-hours/OpeningHours.entity';
 import { Order } from '@/order/Order.entity';
 import { OrderItem } from '@/order-item/OrderItem.entity';
 import { Pizza } from '@/pizza/Pizza.entity';
@@ -30,7 +31,7 @@ const migrations = IS_COMPILED
   : [resolve(__dirname, '../../..', `${MIGRATIONS_PATH}migrations`, '*.ts')];
 
 const sharedOptions = {
-  entities: [Pizza, Order, OrderItem, Lead],
+  entities: [Pizza, Order, OrderItem, Lead, OpeningHours],
   logging: WORKSPACE === 'local',
   migrations,
   migrationsTableName: 'migrations',

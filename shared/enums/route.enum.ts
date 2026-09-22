@@ -4,6 +4,8 @@ export enum Route {
   About = '/about',
   Business = '/business',
   PrivateEvents = '/private-events',
+  Gallery = '/gallery',
+  Contact = '/contact',
   Checkout = '/checkout',
   Admin = '/admin',
 }

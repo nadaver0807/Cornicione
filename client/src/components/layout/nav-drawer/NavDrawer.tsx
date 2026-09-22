@@ -4,7 +4,7 @@ import Styles from '@components/layout/nav-drawer/NavDrawer.style';
 import AppLink from '@components/shared/app-link/AppLink';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box, Drawer, IconButton, Typography } from '@mui/material';
-import { NAV_LINKS, SITE } from '@shared/consts/site.const';
+import { NAV_LINKS, SECONDARY_NAV_LINKS, SITE } from '@shared/consts/site.const';
 import { type FC } from 'react';
 
 type NavDrawerProps = {
@@ -13,11 +13,11 @@ type NavDrawerProps = {
 };
 
 const NavDrawer: FC<NavDrawerProps> = ({ isOpen, onClose }) => (
-  <Drawer anchor="right" open={isOpen} onClose={onClose} sx={Styles.drawer}>
+  <Drawer anchor='right' open={isOpen} onClose={onClose} sx={Styles.drawer}>
     <Box sx={Styles.header}>
-      <Typography variant="overline">{SITE.name.toUpperCase()}</Typography>
-      <IconButton onClick={onClose} aria-label="סגירה">
-        <CloseIcon fontSize="small" />
+      <Typography variant='overline'>{SITE.name.toUpperCase()}</Typography>
+      <IconButton onClick={onClose} aria-label='סגירה'>
+        <CloseIcon fontSize='small' />
       </IconButton>
     </Box>
     <Box sx={Styles.list}>
@@ -25,6 +25,13 @@ const NavDrawer: FC<NavDrawerProps> = ({ isOpen, onClose }) => (
         <AppLink key={link.href} href={link.href} onClick={onClose} sx={Styles.linkTitle}>
           {link.label}
           <Typography sx={Styles.linkDescription}>{link.description}</Typography>
+        </AppLink>
+      ))}
+    </Box>
+    <Box sx={Styles.secondaryList}>
+      {SECONDARY_NAV_LINKS.map((link) => (
+        <AppLink key={link.href} href={link.href} onClick={onClose} sx={Styles.secondaryLink}>
+          {link.label}
         </AppLink>
       ))}
     </Box>
