@@ -1,12 +1,10 @@
 import { requireAdmin } from '@/middlewares/auth.middleware';
 import { validateZodSchema } from '@/middlewares/validateZodSchema.middleware';
-import { findCurrent } from '@/opening-hours/opening-hours.service';
 import { type Order } from '@/order/Order.entity';
 import { create, findAll, updateStatus } from '@/order/order.service';
 import { sendNewOrderEmail } from '@/email/email.service';
 import { OrderStatus } from '@shared/enums/order-status.enum';
 import { type MessageResponse, type UuidParams } from '@shared/types/api.type';
-import { resolveOpeningStatus } from '@shared/util/opening-hours.util';
 import { createOrderSchema, type CreateOrderPayload } from '@shared/validations/order.validation';
 import { Router, type Request, type Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
@@ -26,16 +24,6 @@ orderRouter.post(
     request: Request<unknown, Order | MessageResponse, CreateOrderPayload>,
     response: Response<Order | MessageResponse>,
   ) => {
-    // חסימה בשרת — האתר חוסם גם בצד הלקוח, אך זאת ההגנה הקובעת.
-    const openingHours = await findCurrent();
-    const status = resolveOpeningStatus(openingHours, new Date());
-
-    if (!status.isOpen) {
-      response.status(StatusCodes.CONFLICT).json({ message: status.message });
-
-      return;
-    }
-
     const order = await create(request.body);
 
     await sendNewOrderEmail(order);

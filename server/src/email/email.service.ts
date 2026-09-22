@@ -19,9 +19,7 @@ const send = async (subject: string, html: string): Promise<void> => {
 };
 
 export const sendNewOrderEmail = async (order: Order): Promise<void> => {
-  const items = order.items
-    .map((item) => `<li>${item.quantity} × ${item.name}</li>`)
-    .join('');
+  const items = order.items.map((item) => `<li>${item.quantity} × ${item.name}</li>`).join('');
 
   const html = `
     <h2>הזמנה חדשה #${order.orderNumber}</h2>

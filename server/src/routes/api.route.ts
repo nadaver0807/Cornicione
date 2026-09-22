@@ -1,6 +1,5 @@
 import authRouter from '@/auth/auth.route';
 import leadRouter from '@/lead/lead.route';
-import openingHoursRouter from '@/opening-hours/opening-hours.route';
 import orderRouter from '@/order/order.route';
 import pizzaRouter from '@/pizza/pizza.route';
 import { API_ROUTES } from '@/routes/route.const';
@@ -12,6 +11,5 @@ apiRouter.use(API_ROUTES.Pizzas, pizzaRouter);
 apiRouter.use(API_ROUTES.Orders, orderRouter);
 apiRouter.use(API_ROUTES.Leads, leadRouter);
 apiRouter.use(API_ROUTES.Auth, authRouter);
-apiRouter.use(API_ROUTES.OpeningHours, openingHoursRouter);
 
 export default apiRouter;

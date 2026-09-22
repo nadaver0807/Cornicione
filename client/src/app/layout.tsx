@@ -39,12 +39,12 @@ type RootLayoutProps = {
 };
 
 const RootLayout = ({ children }: RootLayoutProps) => (
-  <html lang='he' dir='rtl' className={`${assistant.variable} ${montserrat.variable}`}>
+  <html lang="he" dir="rtl" className={`${assistant.variable} ${montserrat.variable}`}>
     <body>
       <Providers>
         <Box sx={Styles.layout}>
           <Header />
-          <Box component='main' sx={Styles.main}>
+          <Box component="main" sx={Styles.main}>
             {children}
           </Box>
           <Footer />

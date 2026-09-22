@@ -14,6 +14,7 @@ const eslintConfig = defineConfig([
   },
   {
     rules: {
+      // "סטנדרטים לפיתוח"
       '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
       '@typescript-eslint/no-explicit-any': 'error',
@@ -40,11 +41,11 @@ const eslintConfig = defineConfig([
         'error',
         {
           selector: "JSXAttribute[name.name='style'] > JSXExpressionContainer > ObjectExpression",
-          message: 'Styling must live in ComponentName.style.ts, never on the tag.',
+          message: 'אין לכתוב עיצוב על התגית — יש להגדיר אובייקט ב-ComponentName.style.ts.',
         },
         {
           selector: "MemberExpression[property.name='watch']",
-          message: 'Use useWatch from react-hook-form instead of watch.',
+          message: 'יש להשתמש ב-useWatch מ-react-hook-form במקום watch.',
         },
       ],
       'no-restricted-imports': [
@@ -53,11 +54,11 @@ const eslintConfig = defineConfig([
           patterns: [
             {
               group: ['@cornicione/server', '@cornicione/server/*'],
-              message: 'client never imports from server.',
+              message: 'client לעולם לא מייבא מ-server (סטנדרטים לפיתוח).',
             },
             {
               group: ['../*'],
-              message: 'Use aliases (@components, @hooks, @theme, @shared).',
+              message: 'יש להשתמש ב-aliases (@components, @hooks, @theme, @shared).',
             },
           ],
         },

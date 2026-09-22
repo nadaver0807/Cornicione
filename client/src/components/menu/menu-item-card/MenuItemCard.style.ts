@@ -65,12 +65,6 @@ const image: SxProps<Theme> = {
   objectFit: 'cover',
 };
 
-const closedHint: SxProps<Theme> = {
-  color: 'text.secondary',
-  textAlign: 'center',
-  mt: 1.5,
-};
-
 const Styles = {
   card,
   media,
@@ -81,7 +75,6 @@ const Styles = {
   price,
   actions,
   image,
-  closedHint,
 };
 
 export default Styles;

@@ -16,10 +16,7 @@ export const findByUuid = (uuid: string): Promise<Pizza | null> => Pizza.findOne
 export const create = (payload: CreatePizzaPayload): Promise<Pizza> =>
   Pizza.create({ ...payload, imageUrl: payload.imageUrl || null }).save();
 
-export const update = async (
-  uuid: string,
-  payload: UpdatePizzaPayload,
-): Promise<Pizza | null> => {
+export const update = async (uuid: string, payload: UpdatePizzaPayload): Promise<Pizza | null> => {
   const pizza = await findByUuid(uuid);
 
   if (!pizza) {
