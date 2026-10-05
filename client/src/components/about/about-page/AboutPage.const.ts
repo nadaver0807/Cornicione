@@ -30,7 +30,7 @@ export const PERSONAL_BLOCKS: AboutBlock[] = [
       'זה לא נולד מתוך רצון לפתוח עסק, אלא מתוך רצון להבין. העסק הגיע אחר כך, ' +
         'כשהתוצאה כבר הצדיקה את זה.',
     ],
-    imageUrl: '/images/about/start.jpg',
+    imageUrl: '/images/about/teva.jpg',
     imageAlt: 'עבודה על הבצק',
   },
   {
@@ -41,7 +41,7 @@ export const PERSONAL_BLOCKS: AboutBlock[] = [
         'זמן התסיסה, אופן הפתיחה, המרחק מהאש.',
       'אני מתעסק בפרטים האלה כי הם ההבדל בין פיצה טובה לפיצה שנשארת לך בראש.',
     ],
-    imageUrl: '/images/about/details.jpg',
+    imageUrl: '/images/about/teva.jpg',
     imageAlt: 'פתיחת הבצק ביד',
   },
 ];
@@ -56,7 +56,7 @@ export const PRODUCT_BLOCKS: AboutBlock[] = [
         'הקלילות, את המרקם הפנימי הפתוח ואת העיכול הנוח.',
       'אין קיצורי דרך בשלב הזה. הזמן הוא רכיב, לא המתנה.',
     ],
-    imageUrl: '/images/about/dough.jpg',
+    imageUrl: '/images/about/teva.jpg',
     imageAlt: 'בצק בתסיסה',
   },
   {
@@ -66,7 +66,7 @@ export const PRODUCT_BLOCKS: AboutBlock[] = [
       'הקורניצ׳ונה היא השוליים המנופחים של הפיצה — אווריריים, מנומרים, עם קראסט דק ופנים רך.',
       'זה החלק שאי אפשר לזייף, והוא זה שנתן לעסק את השם שלו.',
     ],
-    imageUrl: '/images/about/cornicione.jpg',
+    imageUrl: '/images/about/teva.jpg',
     imageAlt: 'שוליים מנופחים של פיצה',
   },
   {
@@ -77,7 +77,7 @@ export const PRODUCT_BLOCKS: AboutBlock[] = [
         'כך כל אחד מהם חייב להיות מדויק.',
       'אני בוחר ספקים לפי טעם, לא לפי מחיר.',
     ],
-    imageUrl: '/images/about/ingredients.jpg',
+    imageUrl: '/images/about/teva.jpg',
     imageAlt: 'חומרי גלם',
   },
   {
@@ -88,7 +88,7 @@ export const PRODUCT_BLOCKS: AboutBlock[] = [
         'הנמר על השוליים ואת המרקם הנכון.',
       'שנייה אחת יותר מדי, וזה כבר לא אותו דבר.',
     ],
-    imageUrl: '/images/about/oven.jpg',
+    imageUrl: '/images/about/teva.jpg',
     imageAlt: 'טאבון פיצה',
   },
 ];
