@@ -46,7 +46,13 @@ const ItemDialog: FC<ItemDialogProps> = ({ pizza, onClose }) => {
   };
 
   return (
-    <Dialog open={Boolean(pizza)} onClose={onClose} fullWidth maxWidth="xs" slotProps={{ paper: { sx: Styles.dialogPaper } }}>
+    <Dialog
+      open={Boolean(pizza)}
+      onClose={onClose}
+      fullWidth
+      maxWidth="xs"
+      slotProps={{ paper: { sx: Styles.dialogPaper } }}
+    >
       <DialogTitle sx={Styles.title}>{pizza?.name}</DialogTitle>
       <DialogContent sx={Styles.content}>
         <Typography variant="body2" color="text.secondary">

@@ -2,6 +2,7 @@ import {
   BUSINESS_PARAGRAPHS,
   NONO_GALLERY,
   NONO_VIDEO_URL,
+  ROOFTOP_GALLERY,
 } from '@components/business/business-page/BusinessPage.const';
 import Styles from '@components/business/business-page/BusinessPage.style';
 import LeadForm from '@components/lead/lead-form/LeadForm';
@@ -24,7 +25,26 @@ const BusinessPage: FC = () => (
       <Box component="video" src={NONO_VIDEO_URL} controls playsInline sx={Styles.video} />
       <Box sx={Styles.gallery}>
         {NONO_GALLERY.map((image) => (
-          <Box key={image.src} component="img" src={image.src} alt={image.alt} sx={Styles.galleryImage} />
+          <Box
+            key={image.src}
+            component="img"
+            src={image.src}
+            alt={image.alt}
+            sx={Styles.galleryImage}
+          />
+        ))}
+      </Box>
+    </PageSection>
+    <PageSection eyebrow="אירועי גג" title="Cornicione על הגג">
+      <Box sx={Styles.gallery}>
+        {ROOFTOP_GALLERY.map((image) => (
+          <Box
+            key={image.src}
+            component="img"
+            src={image.src}
+            alt={image.alt}
+            sx={Styles.galleryImage}
+          />
         ))}
       </Box>
     </PageSection>

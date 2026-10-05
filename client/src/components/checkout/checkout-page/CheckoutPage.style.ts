@@ -38,6 +38,10 @@ const feedback: SxProps<Theme> = {
   color: 'text.secondary',
 };
 
-const Styles = { layout, form, summary, summaryRow, totalRow, feedback };
+const statusRow: SxProps<Theme> = {
+  mt: 4,
+};
+
+const Styles = { layout, form, summary, summaryRow, totalRow, feedback, statusRow };
 
 export default Styles;

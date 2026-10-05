@@ -41,6 +41,32 @@ const linkDescription: SxProps<Theme> = {
   mt: 0.5,
 };
 
-const Styles = { drawer, header, list, linkTitle, linkDescription };
+const secondaryList: SxProps<Theme> = {
+  display: 'flex',
+  flexDirection: 'column',
+  px: 3,
+  pb: 4,
+  gap: 2,
+  borderTop: '1px solid',
+  borderColor: 'divider',
+  pt: 4,
+};
+
+const secondaryLink: SxProps<Theme> = {
+  fontSize: '0.95rem',
+  fontWeight: 300,
+  color: 'text.secondary',
+  textDecoration: 'none',
+};
+
+const Styles = {
+  drawer,
+  header,
+  list,
+  linkTitle,
+  linkDescription,
+  secondaryList,
+  secondaryLink,
+};
 
 export default Styles;

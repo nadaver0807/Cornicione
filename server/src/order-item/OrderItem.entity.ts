@@ -1,13 +1,6 @@
 import { Order } from '@/order/Order.entity';
 import { type PizzaTopping } from '@shared/types/pizza.type';
-import {
-  BaseEntity,
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class OrderItem extends BaseEntity {

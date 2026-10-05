@@ -2,16 +2,22 @@
 
 import { useCart } from '@/hooks/cart/useCart';
 import { useCreateOrder } from '@/hooks/api/useCreateOrder';
+import { useOpeningStatus } from '@/hooks/opening-hours/useOpeningStatus';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { DELIVERY_FEE } from '@shared/consts/order.const';
 import { OrderType } from '@shared/enums/order-type.enum';
 import { createOrderSchema, type CreateOrderPayload } from '@shared/validations/order.validation';
+import { useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 
 /** מרכז את הלוגיקה של תהליך ההזמנה: פרטים → סוג מסירה → שליחה. */
 export const useCheckoutPage = () => {
   const { items, totals, clear } = useCart();
   const { mutateAsync, isPending, isSuccess, error } = useCreateOrder();
+  const { status } = useOpeningStatus();
+  const [isClosedDialogOpen, setIsClosedDialogOpen] = useState(false);
+
+  const isClosed = status ? !status.isOpen : false;
 
   const { control, handleSubmit } = useForm<CreateOrderPayload>({
     resolver: zodResolver(createOrderSchema),
@@ -32,6 +38,12 @@ export const useCheckoutPage = () => {
   const deliveryFee = isDelivery ? DELIVERY_FEE : 0;
 
   const onSubmit = handleSubmit(async (values) => {
+    if (isClosed) {
+      setIsClosedDialogOpen(true);
+
+      return;
+    }
+
     await mutateAsync({
       ...values,
       deliveryFee,
@@ -56,5 +68,9 @@ export const useCheckoutPage = () => {
     isPending,
     isSuccess,
     error,
+    status,
+    isClosed,
+    isClosedDialogOpen,
+    closeClosedDialog: () => setIsClosedDialogOpen(false),
   };
 };

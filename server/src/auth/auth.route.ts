@@ -17,8 +17,8 @@ authRouter.post(
     response: Response<LoginResponse | MessageResponse>,
   ) => {
     const { email, password } = request.body;
-    const isMatch =
-      email.toLowerCase() === ADMIN_LOGIN_EMAIL.toLowerCase() && password === ADMIN_PASSWORD;
+    const isEmailMatch = email.toLowerCase() === ADMIN_LOGIN_EMAIL.toLowerCase();
+    const isMatch = isEmailMatch && password === ADMIN_PASSWORD;
 
     if (!isMatch) {
       response.status(StatusCodes.UNAUTHORIZED).json({ message: 'פרטי ההתחברות שגויים' });

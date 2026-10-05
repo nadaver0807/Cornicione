@@ -1,10 +1,35 @@
 import { type SxProps, type Theme } from '@mui/material';
 
 const hero: SxProps<Theme> = {
-  minHeight: { xs: '78vh', md: '88vh' },
+  position: 'relative',
+  height: '100vh',
+  minHeight: 480,
   display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
+  alignItems: 'center',
+  overflow: 'hidden',
+  bgcolor: 'common.black',
+};
+
+const heroVideo: SxProps<Theme> = {
+  position: 'absolute',
+  inset: 0,
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  zIndex: 0,
+};
+
+const heroOverlay: SxProps<Theme> = {
+  position: 'absolute',
+  inset: 0,
+  zIndex: 1,
+  background: 'linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.25) 70%)',
+};
+
+const heroContent: SxProps<Theme> = {
+  position: 'relative',
+  zIndex: 2,
+  width: '100%',
   px: { xs: 3, md: 6 },
   maxWidth: 1280,
   mx: 'auto',
@@ -21,6 +46,10 @@ const tagline: SxProps<Theme> = {
   color: 'text.secondary',
   mt: 4,
   maxWidth: 520,
+};
+
+const statusRow: SxProps<Theme> = {
+  mt: 5,
 };
 
 const gate: SxProps<Theme> = {
@@ -54,6 +83,18 @@ const gateDescription: SxProps<Theme> = {
   mt: 1.5,
 };
 
-const Styles = { hero, brand, tagline, gate, gateItem, gateIndex, gateDescription };
+const Styles = {
+  hero,
+  heroVideo,
+  heroOverlay,
+  heroContent,
+  brand,
+  tagline,
+  statusRow,
+  gate,
+  gateItem,
+  gateIndex,
+  gateDescription,
+};
 
 export default Styles;

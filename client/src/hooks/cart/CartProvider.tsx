@@ -4,14 +4,7 @@ import { DELIVERY_FEE, MAX_ITEM_QUANTITY } from '@shared/consts/order.const';
 import { type CartItem, type CartTotals } from '@shared/types/cart.type';
 import { type Pizza, type PizzaTopping } from '@shared/types/pizza.type';
 import { calculateSubtotal } from '@shared/util/cart.util';
-import {
-  createContext,
-  useCallback,
-  useMemo,
-  useState,
-  type FC,
-  type ReactNode,
-} from 'react';
+import { createContext, useCallback, useMemo, useState, type FC, type ReactNode } from 'react';
 
 export type CartContextValue = {
   items: CartItem[];
@@ -32,7 +25,10 @@ type CartProviderProps = {
 
 /** מזהה שורה — פריט זהה עם תוספות שונות נשמר כשורה נפרדת. */
 const buildLineId = (pizzaUuid: string, toppings: PizzaTopping[], note: string): string =>
-  `${pizzaUuid}|${toppings.map((topping) => topping.name).sort().join(',')}|${note}`;
+  `${pizzaUuid}|${toppings
+    .map((topping) => topping.name)
+    .sort()
+    .join(',')}|${note}`;
 
 export const CartProvider: FC<CartProviderProps> = ({ children }) => {
   const [items, setItems] = useState<CartItem[]>([]);
