@@ -1,44 +1,30 @@
 import Styles from '@components/layout/footer/Footer.style';
 import AppLink from '@components/shared/app-link/AppLink';
 import { Box, Typography } from '@mui/material';
-import { NAV_LINKS, SECONDARY_NAV_LINKS, SITE, TAKEAWAY_WINDOW } from '@shared/consts/site.const';
+import { SITE } from '@shared/consts/site.const';
+import { Route } from '@shared/enums/route.enum';
 import { type FC } from 'react';
 
 const Footer: FC = () => (
-  <Box component='footer' sx={Styles.footer}>
-    <Box sx={Styles.inner}>
-      <Box>
-        <Typography sx={Styles.brand}>{SITE.name.toUpperCase()}</Typography>
-        <Typography sx={Styles.tagline}>{SITE.tagline}</Typography>
+  <Box component="footer" sx={Styles.footer}>
+    <Typography sx={Styles.title}>{SITE.name}</Typography>
+    <Typography sx={{ mt: 1.5, color: 'text.secondary', direction: 'ltr' }}>{SITE.phone}</Typography>
+    <Box sx={Styles.links}>
+      <AppLink href={Route.PrivateEvents} sx={Styles.link}>
+        אירועים פרטיים
+      </AppLink>
+      <AppLink href={Route.Business} sx={Styles.link}>
+        אירועי חברה
+      </AppLink>
+      <Box component="a" href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" sx={Styles.link}>
+        Instagram
       </Box>
-      <Box sx={Styles.column}>
-        <Typography variant='overline'>ניווט</Typography>
-        {[...NAV_LINKS, ...SECONDARY_NAV_LINKS].map((link) => (
-          <AppLink key={link.href} href={link.href} sx={Styles.link}>
-            {link.label}
-          </AppLink>
-        ))}
-      </Box>
-      <Box sx={Styles.column}>
-        <Typography variant='overline'>יצירת קשר</Typography>
-        <Box component='a' href={`tel:${SITE.phone}`} sx={Styles.link}>
-          {SITE.phone}
-        </Box>
-        <Box component='a' href={`mailto:${SITE.email}`} sx={Styles.link}>
-          {SITE.email}
-        </Box>
-        <Box component='a' href={SITE.social.instagram} target='_blank' sx={Styles.link}>
-          Instagram
-        </Box>
-      </Box>
-      <Box sx={Styles.column}>
-        <Typography variant='overline'>Take Away</Typography>
-        <Typography sx={Styles.link}>{TAKEAWAY_WINDOW.dayLabel}</Typography>
-        <Typography sx={Styles.link}>{TAKEAWAY_WINDOW.hoursLabel}</Typography>
+      <Box component="a" href={SITE.social.whatsapp} target="_blank" rel="noopener noreferrer" sx={Styles.link}>
+        WhatsApp
       </Box>
     </Box>
     <Typography sx={Styles.copyright}>
-      © {new Date().getFullYear()} {SITE.name}
+      © {new Date().getFullYear()} {SITE.name}. כל הזכויות שמורות.
     </Typography>
   </Box>
 );

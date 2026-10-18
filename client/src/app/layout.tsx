@@ -7,22 +7,34 @@ import { Box } from '@mui/material';
 import { SITE } from '@shared/consts/site.const';
 import Providers from '@theme/Providers';
 import { type Metadata } from 'next';
-import { Assistant, Montserrat } from 'next/font/google';
+import { Cormorant_Garamond, Frank_Ruhl_Libre, Great_Vibes, Heebo } from 'next/font/google';
 import { type ReactNode } from 'react';
 
-/** עברית — גוף הטקסט של האתר. */
-const assistant = Assistant({
+const heebo = Heebo({
   variable: '--font-hebrew',
   subsets: ['hebrew', 'latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400', '500'],
   display: 'swap',
 });
 
-/** אנגלית — שם המותג והכותרות הלטיניות. */
-const montserrat = Montserrat({
-  variable: '--font-latin',
+const frank = Frank_Ruhl_Libre({
+  variable: '--font-serif-he',
+  subsets: ['hebrew', 'latin'],
+  weight: ['300', '400'],
+  display: 'swap',
+});
+
+const cormorant = Cormorant_Garamond({
+  variable: '--font-serif',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
+  weight: ['300', '400', '500'],
+  display: 'swap',
+});
+
+const script = Great_Vibes({
+  variable: '--font-script',
+  subsets: ['latin'],
+  weight: '400',
   display: 'swap',
 });
 
@@ -38,8 +50,10 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
+const fontClasses = [heebo, frank, cormorant, script].map((font) => font.variable).join(' ');
+
 const RootLayout = ({ children }: RootLayoutProps) => (
-  <html lang="he" dir="rtl" className={`${assistant.variable} ${montserrat.variable}`}>
+  <html lang="he" dir="rtl" className={fontClasses}>
     <body>
       <Providers>
         <Box sx={Styles.layout}>

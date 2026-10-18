@@ -9,7 +9,7 @@ const badge: SxProps<Theme> = {
   gap: 1.25,
   border: '1px solid',
   borderColor: 'divider',
-  borderRadius: 99,
+  borderRadius: 0,
   px: 2.5,
   py: 1,
 };
@@ -20,7 +20,7 @@ const badgeProminent: SxProps<Theme> = {
   gap: 1.75,
   border: '1px solid',
   borderColor: 'divider',
-  borderRadius: 99,
+  borderRadius: 0,
   px: 3,
   py: 1.75,
   bgcolor: 'rgba(245, 243, 240, 0.04)',

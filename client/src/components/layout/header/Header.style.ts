@@ -1,8 +1,8 @@
 import { type SxProps, type Theme } from '@mui/material';
 
 const appBar: SxProps<Theme> = {
-  bgcolor: 'rgba(10, 10, 10, 0.86)',
-  backdropFilter: 'blur(14px)',
+  bgcolor: 'rgba(11, 11, 10, 0.72)',
+  backdropFilter: 'blur(10px)',
   borderBottom: '1px solid',
   borderColor: 'divider',
 };
@@ -11,8 +11,8 @@ const toolbar: SxProps<Theme> = {
   maxWidth: 1280,
   width: '100%',
   mx: 'auto',
-  px: { xs: 2, md: 5 },
-  minHeight: { xs: 62, md: 76 },
+  px: { xs: 2.5, md: 5 },
+  minHeight: { xs: 60, md: 72 },
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -20,12 +20,11 @@ const toolbar: SxProps<Theme> = {
 };
 
 const brand: SxProps<Theme> = {
-  fontSize: { xs: '1.05rem', md: '1.25rem' },
-  fontWeight: 400,
-  letterSpacing: '0.34em',
+  fontFamily: 'var(--font-serif), serif',
+  fontSize: { xs: '0.95rem', md: '1.1rem' },
+  letterSpacing: '0.25em',
   color: 'text.primary',
   textDecoration: 'none',
-  whiteSpace: 'nowrap',
 };
 
 const nav: SxProps<Theme> = {
@@ -34,8 +33,14 @@ const nav: SxProps<Theme> = {
   gap: 4,
 };
 
-const cartButton: SxProps<Theme> = {
+const cta: SxProps<Theme> = {
+  display: { xs: 'none', sm: 'inline-block' },
+  fontSize: '0.85rem',
   color: 'text.primary',
+  textDecoration: 'none',
+  borderBottom: '1px solid rgba(242, 239, 233, 0.4)',
+  pb: 0.5,
+  '&:hover': { borderBottomColor: 'text.primary' },
 };
 
 const menuButton: SxProps<Theme> = {
@@ -43,31 +48,8 @@ const menuButton: SxProps<Theme> = {
   color: 'text.primary',
 };
 
-const actions: SxProps<Theme> = {
-  display: 'flex',
-  alignItems: 'center',
-  gap: 0.5,
-};
+const actions: SxProps<Theme> = { display: 'flex', alignItems: 'center', gap: 2 };
 
-const secondaryNav: SxProps<Theme> = {
-  display: { xs: 'none', lg: 'flex' },
-  alignItems: 'center',
-  gap: 3,
-  pl: 3,
-  ml: 1,
-  borderLeft: '1px solid',
-  borderColor: 'divider',
-};
-
-const Styles = {
-  appBar,
-  toolbar,
-  brand,
-  nav,
-  secondaryNav,
-  cartButton,
-  menuButton,
-  actions,
-};
+const Styles = { appBar, toolbar, brand, nav, cta, menuButton, actions };
 
 export default Styles;

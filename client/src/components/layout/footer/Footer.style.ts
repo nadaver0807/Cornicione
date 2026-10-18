@@ -3,53 +3,36 @@ import { type SxProps, type Theme } from '@mui/material';
 const footer: SxProps<Theme> = {
   borderTop: '1px solid',
   borderColor: 'divider',
-  px: { xs: 3, md: 6 },
-  py: { xs: 6, md: 8 },
-  mt: 10,
+  py: { xs: 7, md: 9 },
+  px: 3,
+  textAlign: 'center',
+  bgcolor: 'background.default',
 };
 
-const inner: SxProps<Theme> = {
-  maxWidth: 1280,
-  mx: 'auto',
-  display: 'flex',
-  flexDirection: { xs: 'column', md: 'row' },
-  justifyContent: 'space-between',
-  gap: 5,
-};
-
-const brand: SxProps<Theme> = {
-  letterSpacing: '0.34em',
-  fontSize: '1.1rem',
+const title: SxProps<Theme> = {
+  fontFamily: 'var(--font-serif), serif',
+  fontSize: '1.6rem',
   fontWeight: 300,
+  letterSpacing: '0.2em',
 };
 
-const tagline: SxProps<Theme> = {
-  color: 'text.secondary',
-  mt: 1.5,
-  maxWidth: 320,
-};
-
-const column: SxProps<Theme> = {
+const links: SxProps<Theme> = {
   display: 'flex',
-  flexDirection: 'column',
-  gap: 1.5,
+  justifyContent: 'center',
+  flexWrap: 'wrap',
+  gap: 3,
+  mt: 3,
 };
 
 const link: SxProps<Theme> = {
   color: 'text.secondary',
-  textDecoration: 'none',
   fontSize: '0.85rem',
+  textDecoration: 'none',
   '&:hover': { color: 'text.primary' },
 };
 
-const copyright: SxProps<Theme> = {
-  color: 'text.secondary',
-  fontSize: '0.75rem',
-  letterSpacing: '0.1em',
-  mt: 6,
-  textAlign: 'center',
-};
+const copyright: SxProps<Theme> = { color: 'text.secondary', fontSize: '0.75rem', mt: 4 };
 
-const Styles = { footer, inner, brand, tagline, column, link, copyright };
+const Styles = { footer, title, links, link, copyright };
 
 export default Styles;
