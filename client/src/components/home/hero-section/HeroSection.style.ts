@@ -55,7 +55,12 @@ const signature: SxProps<Theme> = {
   justifyContent: 'center',
   gap: 2,
   mt: 3,
-  '&::before, &::after': { content: '""', width: 56, height: '1px', bgcolor: 'rgba(242,239,233,0.4)' },
+  '&::before, &::after': {
+    content: '""',
+    width: 56,
+    height: '1px',
+    bgcolor: 'rgba(242,239,233,0.4)',
+  },
 };
 
 const script: SxProps<Theme> = {
@@ -81,6 +86,17 @@ const scrollLine: SxProps<Theme> = {
   zIndex: 2,
 };
 
-const Styles = { hero, video, overlay, content, title, subtitle, signature, script, poem, scrollLine };
+const Styles = {
+  hero,
+  video,
+  overlay,
+  content,
+  title,
+  subtitle,
+  signature,
+  script,
+  poem,
+  scrollLine,
+};
 
 export default Styles;
