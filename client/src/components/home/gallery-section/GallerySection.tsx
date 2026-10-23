@@ -8,7 +8,13 @@ const GallerySection: FC = () => (
   <Box
     component="section"
     id="gallery"
-    sx={{ maxWidth: 1280, mx: 'auto', px: { xs: 3, md: 6 }, py: { xs: 8, md: 12 }, scrollMarginTop: 72 }}
+    sx={{
+      maxWidth: 1280,
+      mx: 'auto',
+      px: { xs: 3, md: 6 },
+      py: { xs: 8, md: 12 },
+      scrollMarginTop: 72,
+    }}
   >
     <SectionHeader title="מהטאבון" label="GALLERIA" />
     <Box sx={{ columnCount: { xs: 1, sm: 2 }, columnGap: 2 }}>

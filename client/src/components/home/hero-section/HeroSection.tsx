@@ -38,7 +38,11 @@ const HeroSection: FC = () => (
         <br />
         חומרי גלם מובחרים, עבודת יד ודיוק באפייה בטאבון משלימים את החוויה.
       </Typography>
-      <Box component="a" href={`#${LEAD_SECTION_ANCHOR}`} sx={[SectionStyles.underlineLink, { mt: 6 }]}>
+      <Box
+        component="a"
+        href={`#${LEAD_SECTION_ANCHOR}`}
+        sx={[SectionStyles.underlineLink, { mt: 6 }]}
+      >
         להזמנת אירוע או לפרטים נוספים
       </Box>
     </Box>

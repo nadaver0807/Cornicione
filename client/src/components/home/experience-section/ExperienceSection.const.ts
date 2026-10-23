@@ -19,8 +19,7 @@ export const PILLARS = [
   {
     numeral: 'II',
     title: 'אירועי חברה וקהילה',
-    description:
-      'האקתונים, ימי גיבוש, הרמות כוסית ואירועי קהילה. כמויות גדולות, קצב גבוה, רמת שף.',
+    description: 'האקתונים, ימי גיבוש, הרמות כוסית ואירועי קהילה. כמויות גדולות, קצב גבוה, רמת שף.',
     cta: 'להצעת מחיר לחברות',
     image: '/images/business/rooftop/rooftop-1.jpeg',
     leadType: LeadType.Business,

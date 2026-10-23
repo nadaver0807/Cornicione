@@ -8,7 +8,9 @@ import { type FC } from 'react';
 const Footer: FC = () => (
   <Box component="footer" sx={Styles.footer}>
     <Typography sx={Styles.title}>{SITE.name}</Typography>
-    <Typography sx={{ mt: 1.5, color: 'text.secondary', direction: 'ltr' }}>{SITE.phone}</Typography>
+    <Typography sx={{ mt: 1.5, color: 'text.secondary', direction: 'ltr' }}>
+      {SITE.phone}
+    </Typography>
     <Box sx={Styles.links}>
       <AppLink href={Route.PrivateEvents} sx={Styles.link}>
         אירועים פרטיים
@@ -16,10 +18,22 @@ const Footer: FC = () => (
       <AppLink href={Route.Business} sx={Styles.link}>
         אירועי חברה
       </AppLink>
-      <Box component="a" href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" sx={Styles.link}>
+      <Box
+        component="a"
+        href={SITE.social.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={Styles.link}
+      >
         Instagram
       </Box>
-      <Box component="a" href={SITE.social.whatsapp} target="_blank" rel="noopener noreferrer" sx={Styles.link}>
+      <Box
+        component="a"
+        href={SITE.social.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={Styles.link}
+      >
         WhatsApp
       </Box>
     </Box>

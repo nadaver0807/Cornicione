@@ -1,6 +1,9 @@
 'use client';
 
-import { PILLARS, PROCESS_STEPS } from '@components/home/experience-section/ExperienceSection.const';
+import {
+  PILLARS,
+  PROCESS_STEPS,
+} from '@components/home/experience-section/ExperienceSection.const';
 import Styles from '@components/home/experience-section/ExperienceSection.style';
 import { selectLeadType } from '@components/home/home-lead-section/lead-select.util';
 import SectionHeader from '@components/shared/section-header/SectionHeader';
@@ -27,7 +30,13 @@ const ExperienceSection: FC = () => (
     <Box sx={Styles.pillars}>
       {PILLARS.map((pillar) => (
         <Box key={pillar.title}>
-          <Box component="img" src={pillar.image} alt={pillar.title} loading="lazy" sx={Styles.image} />
+          <Box
+            component="img"
+            src={pillar.image}
+            alt={pillar.title}
+            loading="lazy"
+            sx={Styles.image}
+          />
           <Box sx={Styles.caption}>
             <Typography sx={Styles.numeral}>{pillar.numeral}</Typography>
             <Typography variant="h4">{pillar.title}</Typography>

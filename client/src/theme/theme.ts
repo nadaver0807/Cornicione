@@ -43,10 +43,16 @@ const theme = createTheme(
         defaultProps: { disableElevation: true, disableRipple: true },
         styleOverrides: {
           root: { borderRadius: 0, paddingBlock: 14, paddingInline: 28 },
-          contained: { backgroundColor: CREAM_BTN, color: BG, '&:hover': { backgroundColor: TEXT } },
+          contained: {
+            backgroundColor: CREAM_BTN,
+            color: BG,
+            '&:hover': { backgroundColor: TEXT },
+          },
         },
       },
-      MuiPaper: { styleOverrides: { root: { backgroundImage: 'none', border: `1px solid ${LINE}` } } },
+      MuiPaper: {
+        styleOverrides: { root: { backgroundImage: 'none', border: `1px solid ${LINE}` } },
+      },
       MuiAppBar: { styleOverrides: { root: { backgroundImage: 'none', boxShadow: 'none' } } },
       MuiOutlinedInput: {
         styleOverrides: {

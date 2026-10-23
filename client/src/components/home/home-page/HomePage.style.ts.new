@@ -1,0 +1,9 @@
+import { type SxProps, type Theme } from '@mui/material';
+
+const root: SxProps<Theme> = {
+  bgcolor: 'background.default',
+};
+
+const Styles = { root };
+
+export default Styles;
