@@ -12,7 +12,7 @@ type MenuItemCardProps = {
   onSelect: (pizza: Pizza) => void;
 };
 
-/** כפתור ההוספה נשאר לחיץ כשסגור, כדי שהלחיצה תסביר למה אי אפשר להזמין. */
+/** כשההזמנות סגורות כפתור ההוספה מושבת, והתפריט נשאר לעיון. */
 const MenuItemCard: FC<MenuItemCardProps> = ({ pizza, isClosed, onSelect }) => (
   <Box sx={Styles.card}>
     <Box sx={Styles.media}>
@@ -35,16 +35,12 @@ const MenuItemCard: FC<MenuItemCardProps> = ({ pizza, isClosed, onSelect }) => (
         fullWidth
         variant='outlined'
         color='inherit'
-        disabled={pizza.isSoldOut}
+        disabled={pizza.isSoldOut || isClosed}
+        aria-label={`הוספת ${pizza.name} להזמנה`}
         onClick={() => onSelect(pizza)}
       >
-        {pizza.isSoldOut ? 'אזל מהמלאי' : 'הוספה להזמנה'}
+        {pizza.isSoldOut ? 'אזל מהמלאי' : isClosed ? 'ההזמנות סגורות' : 'הוספה להזמנה'}
       </Button>
-      {isClosed && !pizza.isSoldOut ? (
-        <Typography variant='body2' sx={Styles.closedHint}>
-          ההזמנות סגורות כרגע
-        </Typography>
-      ) : null}
     </Box>
   </Box>
 );

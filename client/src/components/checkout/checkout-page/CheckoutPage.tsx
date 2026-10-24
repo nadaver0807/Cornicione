@@ -2,8 +2,7 @@
 
 import Styles from '@components/checkout/checkout-page/CheckoutPage.style';
 import { useCheckoutPage } from '@components/checkout/checkout-page/useCheckoutPage';
-import ClosedDialog from '@components/menu/closed-dialog/ClosedDialog';
-import OpeningStatusBadge from '@components/shared/opening-status-badge/OpeningStatusBadge';
+import OrderingBanner from '@components/menu/ordering-banner/OrderingBanner';
 import PageHero from '@components/shared/page-hero/PageHero';
 import PageSection from '@components/shared/page-section/PageSection';
 import { Box, Button, MenuItem, TextField, Typography } from '@mui/material';
@@ -23,20 +22,15 @@ const CheckoutPage: FC = () => {
     isPending,
     isSuccess,
     error,
-    status,
     isClosed,
-    isClosedDialogOpen,
-    closeClosedDialog,
   } = useCheckoutPage();
 
   return (
     <Box>
       <PageHero eyebrow='הזמנה' title='פרטים ואישור' subtitle='שלב אחרון — פרטי מסירה ואישור.'>
-        {isClosed ? (
-          <Box sx={Styles.statusRow}>
-            <OpeningStatusBadge />
-          </Box>
-        ) : null}
+        <Box sx={Styles.statusRow}>
+          <OrderingBanner />
+        </Box>
       </PageHero>
       <PageSection>
         <Box sx={Styles.layout}>
@@ -138,7 +132,6 @@ const CheckoutPage: FC = () => {
           </Box>
         </Box>
       </PageSection>
-      <ClosedDialog isOpen={isClosedDialogOpen} status={status} onClose={closeClosedDialog} />
     </Box>
   );
 };

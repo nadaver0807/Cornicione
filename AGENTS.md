@@ -37,12 +37,12 @@ The entire site speaks one visual language, tied to the black Cornicione logo:
 
 The site is built from four clearly separated areas. The user must always know where they are.
 
-| # | Area | Route | Priority |
-|---|------|-------|----------|
-| 1 | טייקאווי ומשלוחים | `/menu` | Functional — see the window, browse, order fast |
-| 2 | מה זה Cornicione | `/about` | Brand depth — personal layer + product layer |
-| 3 | Cornicione & More | `/business` | Growth — show, then explain, then contact |
-| 4 | אירועים פרטיים | `/private-events` | Present but least dominant |
+| #   | Area              | Route             | Priority                                        |
+| --- | ----------------- | ----------------- | ----------------------------------------------- |
+| 1   | טייקאווי ומשלוחים | `/menu`           | Functional — see the window, browse, order fast |
+| 2   | מה זה Cornicione  | `/about`          | Brand depth — personal layer + product layer    |
+| 3   | שיתופי פעולה      | `/collaborations` | Growth — show, then explain, then contact       |
+| 4   | אירועים פרטיים    | `/private-events` | Present but least dominant                      |
 
 Rules per area:
 

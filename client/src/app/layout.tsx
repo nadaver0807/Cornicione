@@ -1,7 +1,9 @@
 import Styles from '@/app/RootLayout.style';
 import CartDrawer from '@components/cart/cart-drawer/CartDrawer';
+import AccessibilityWidget from '@components/layout/accessibility-widget/AccessibilityWidget';
 import Footer from '@components/layout/footer/Footer';
 import Header from '@components/layout/header/Header';
+import SkipLink from '@components/layout/skip-link/SkipLink';
 import WhatsappFab from '@components/layout/whatsapp-fab/WhatsappFab';
 import { Box } from '@mui/material';
 import { SITE } from '@shared/consts/site.const';
@@ -56,14 +58,16 @@ const RootLayout = ({ children }: RootLayoutProps) => (
   <html lang="he" dir="rtl" className={fontClasses}>
     <body>
       <Providers>
+        <SkipLink />
         <Box sx={Styles.layout}>
           <Header />
-          <Box component="main" sx={Styles.main}>
+          <Box component="main" id="main-content" tabIndex={-1} sx={Styles.main}>
             {children}
           </Box>
           <Footer />
         </Box>
         <WhatsappFab />
+        <AccessibilityWidget />
         <CartDrawer />
       </Providers>
     </body>

@@ -47,7 +47,11 @@ export const NAV_LINKS: NavLink[] = [
     description: `${TAKEAWAY_WINDOW.dayLabel} | ${TAKEAWAY_WINDOW.hoursLabel}`,
   },
   { href: Route.About, label: 'מה זה Cornicione', description: 'הסיפור, הבצק והגישה' },
-  { href: Route.Business, label: 'Cornicione & More', description: 'פופ־אפים ושיתופי פעולה' },
+  {
+    href: Route.Collaborations,
+    label: 'שיתופי פעולה',
+    description: 'פופ־אפים ושיתופי פעולה',
+  },
   { href: Route.PrivateEvents, label: 'אירועים פרטיים', description: 'החוויה אצלכם' },
 ];
 

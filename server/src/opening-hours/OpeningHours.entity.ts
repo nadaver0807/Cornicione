@@ -23,9 +23,9 @@ export class OpeningHours extends BaseEntity {
   @Column({ type: 'varchar', length: 5, default: '22:00' })
   closeTime: string;
 
-  /** כיבוי ידני — סוגר את ההזמנות גם ביום הפעילות. */
-  @Column({ type: 'boolean', default: true })
-  isActive: boolean;
+  /** מתג ההזמנות — נשלט על ידי המנהלן, סגור כברירת מחדל. */
+  @Column({ type: 'boolean', default: false })
+  isOrderingEnabled: boolean;
 
   @Column({ type: 'varchar', default: '' })
   closedMessage: string;

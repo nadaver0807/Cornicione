@@ -22,6 +22,15 @@ export class Lead extends BaseEntity {
   businessName: string;
 
   @Column({ type: 'varchar', default: '' })
+  eventDate: string;
+
+  @Column({ type: 'varchar', default: '' })
+  guestCount: string;
+
+  @Column({ type: 'varchar', default: '' })
+  location: string;
+
+  @Column({ type: 'varchar', default: '' })
   message: string;
 
   @CreateDateColumn()

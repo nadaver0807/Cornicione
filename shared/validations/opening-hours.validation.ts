@@ -14,7 +14,7 @@ export const updateOpeningHoursSchema = z
     weekday: z.nativeEnum(Weekday),
     openTime: timeOfDay(),
     closeTime: timeOfDay(),
-    isActive: z.boolean(),
+    isOrderingEnabled: z.boolean(),
     closedMessage: optionalString(200),
   })
   .refine((value) => value.openTime < value.closeTime, {

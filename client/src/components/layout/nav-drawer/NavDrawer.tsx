@@ -13,14 +13,20 @@ type NavDrawerProps = {
 };
 
 const NavDrawer: FC<NavDrawerProps> = ({ isOpen, onClose }) => (
-  <Drawer anchor='right' open={isOpen} onClose={onClose} sx={Styles.drawer}>
+  <Drawer
+    anchor="right"
+    open={isOpen}
+    onClose={onClose}
+    sx={Styles.drawer}
+    slotProps={{ paper: { role: 'dialog', 'aria-label': 'תפריט ניווט' } }}
+  >
     <Box sx={Styles.header}>
-      <Typography variant='overline'>{SITE.name.toUpperCase()}</Typography>
-      <IconButton onClick={onClose} aria-label='סגירה'>
-        <CloseIcon fontSize='small' />
+      <Typography variant="overline">{SITE.name.toUpperCase()}</Typography>
+      <IconButton onClick={onClose} aria-label="סגירת תפריט הניווט">
+        <CloseIcon fontSize="small" />
       </IconButton>
     </Box>
-    <Box sx={Styles.list}>
+    <Box component="nav" aria-label="ניווט ראשי" sx={Styles.list}>
       {NAV_LINKS.map((link) => (
         <AppLink key={link.href} href={link.href} onClick={onClose} sx={Styles.linkTitle}>
           {link.label}

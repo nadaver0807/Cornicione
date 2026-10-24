@@ -6,14 +6,14 @@ import { type PizzaCategory } from '@shared/enums/pizza-category.enum';
 import { type Pizza } from '@shared/types/pizza.type';
 import { useCallback, useMemo, useState } from 'react';
 
-/** מרכז את מצב עמוד התפריט: קיבוץ לפי קטגוריה ובחירת פריט בכפוף לשעות. */
+/** מרכז את מצב עמוד התפריט: קיבוץ לפי קטגוריה ובחירת פריט כשההזמנות פתוחות. */
 export const useMenuPage = () => {
   const { data, isPending, isError } = useGetPizzas();
   const { status } = useOpeningStatus();
   const [selected, setSelected] = useState<Pizza | null>(null);
-  const [isClosedDialogOpen, setIsClosedDialogOpen] = useState(false);
 
-  const isClosed = status ? !status.isOpen : false;
+  // כל עוד אין סטטוס — ההזמנות נחשבות סגורות (ברירת המחדל).
+  const isClosed = !status?.isOpen;
 
   const grouped = useMemo(() => {
     const map = new Map<PizzaCategory, Pizza[]>();
@@ -25,12 +25,9 @@ export const useMenuPage = () => {
     return [...map.entries()];
   }, [data]);
 
-  // מחוץ לשעות הפעילות הבחירה לא נפתחת — במקומה עולה הודעה.
   const selectPizza = useCallback(
     (pizza: Pizza) => {
       if (isClosed) {
-        setIsClosedDialogOpen(true);
-
         return;
       }
 
@@ -40,18 +37,6 @@ export const useMenuPage = () => {
   );
 
   const closeItemDialog = useCallback(() => setSelected(null), []);
-  const closeClosedDialog = useCallback(() => setIsClosedDialogOpen(false), []);
 
-  return {
-    grouped,
-    isPending,
-    isError,
-    status,
-    isClosed,
-    selected,
-    selectPizza,
-    closeItemDialog,
-    isClosedDialogOpen,
-    closeClosedDialog,
-  };
+  return { grouped, isPending, isError, status, isClosed, selected, selectPizza, closeItemDialog };
 };

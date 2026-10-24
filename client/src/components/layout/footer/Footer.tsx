@@ -8,15 +8,22 @@ import { type FC } from 'react';
 const Footer: FC = () => (
   <Box component="footer" sx={Styles.footer}>
     <Typography sx={Styles.title}>{SITE.name}</Typography>
-    <Typography sx={{ mt: 1.5, color: 'text.secondary', direction: 'ltr' }}>
-      {SITE.phone}
-    </Typography>
-    <Box sx={Styles.links}>
+    <Typography sx={Styles.phone}>{SITE.phone}</Typography>
+    <Box component="nav" aria-label="קישורי תחתית" sx={Styles.links}>
       <AppLink href={Route.PrivateEvents} sx={Styles.link}>
         אירועים פרטיים
       </AppLink>
-      <AppLink href={Route.Business} sx={Styles.link}>
-        אירועי חברה
+      <AppLink href={Route.Collaborations} sx={Styles.link}>
+        שיתופי פעולה
+      </AppLink>
+      <AppLink href={Route.Gallery} sx={Styles.link}>
+        גלריה
+      </AppLink>
+      <AppLink href={Route.Contact} sx={Styles.link}>
+        יצירת קשר
+      </AppLink>
+      <AppLink href={Route.Accessibility} sx={Styles.link}>
+        הצהרת נגישות
       </AppLink>
       <Box
         component="a"

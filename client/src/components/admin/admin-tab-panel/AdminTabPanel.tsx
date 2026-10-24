@@ -1,7 +1,7 @@
 'use client';
 
 import AdminHoursForm from '@components/admin/admin-hours-form/AdminHoursForm';
-import AdminMenuRow from '@components/admin/admin-menu-row/AdminMenuRow';
+import AdminMenuPanel from '@components/admin/admin-menu-panel/AdminMenuPanel';
 import AdminOrderCard from '@components/admin/admin-order-card/AdminOrderCard';
 import Styles from '@components/admin/admin-dashboard/AdminDashboard.style';
 import { AdminTab } from '@components/admin/admin-dashboard/useAdminDashboard';
@@ -29,14 +29,7 @@ const AdminTabPanel: FC<AdminTabPanelProps> = ({ tab, orders, pizzas }) => {
   }
 
   if (tab === AdminTab.Menu) {
-    return (
-      <Box>
-        {pizzas.isPending ? <Typography sx={Styles.state}>טוען תפריט…</Typography> : null}
-        {pizzas.data?.pizzas.map((pizza) => (
-          <AdminMenuRow key={pizza.uuid} pizza={pizza} />
-        ))}
-      </Box>
-    );
+    return <AdminMenuPanel pizzas={pizzas.data?.pizzas} isPending={pizzas.isPending} />;
   }
 
   return (

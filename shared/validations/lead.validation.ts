@@ -15,6 +15,10 @@ export const createLeadSchema = z.object({
   email: email().optional().or(z.literal('')),
   /** שם העסק / המקום — רלוונטי לפניות עסקיות. */
   businessName: optionalString(120),
+  /** פרטי אירוע פרטי — תאריך, כמות אורחים ומיקום. */
+  eventDate: optionalString(40),
+  guestCount: optionalString(10),
+  location: optionalString(200),
   message: optionalString(1000),
 });
 

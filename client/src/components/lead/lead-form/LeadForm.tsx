@@ -1,5 +1,6 @@
 'use client';
 
+import LeadExtraFields from '@components/lead/lead-extra-fields/LeadExtraFields';
 import Styles from '@components/lead/lead-form/LeadForm.style';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Box, Button, TextField, Typography } from '@mui/material';
@@ -15,27 +16,43 @@ type LeadFormProps = {
   submitLabel: string;
   whatsappMessage: string;
   withBusinessName?: boolean;
+  withEventDetails?: boolean;
+  withInquiryType?: boolean;
 };
+
+const buildDefaults = (leadType: LeadType): CreateLeadPayload => ({
+  leadType,
+  fullName: '',
+  phone: '',
+  email: '',
+  businessName: '',
+  eventDate: '',
+  guestCount: '',
+  location: '',
+  message: '',
+});
 
 const LeadForm: FC<LeadFormProps> = ({
   leadType,
   submitLabel,
   whatsappMessage,
   withBusinessName = false,
+  withEventDetails = false,
+  withInquiryType = false,
 }) => {
   const { mutateAsync, isPending, isSuccess, error } = useCreateLead();
   const { control, handleSubmit, reset } = useForm<CreateLeadPayload>({
     resolver: zodResolver(createLeadSchema),
-    defaultValues: { leadType, fullName: '', phone: '', email: '', businessName: '', message: '' },
+    defaultValues: buildDefaults(leadType),
   });
 
   const onSubmit = handleSubmit(async (values) => {
     await mutateAsync(values);
-    reset({ leadType, fullName: '', phone: '', email: '', businessName: '', message: '' });
+    reset(buildDefaults(leadType));
   });
 
   return (
-    <Box component="form" onSubmit={onSubmit} sx={Styles.form}>
+    <Box component="form" onSubmit={onSubmit} noValidate sx={Styles.form}>
       <Controller
         name="fullName"
         control={control}
@@ -43,6 +60,7 @@ const LeadForm: FC<LeadFormProps> = ({
           <TextField
             {...field}
             label="שם מלא"
+            required
             error={Boolean(fieldState.error)}
             helperText={fieldState.error?.message}
           />
@@ -54,23 +72,41 @@ const LeadForm: FC<LeadFormProps> = ({
         render={({ field, fieldState }) => (
           <TextField
             {...field}
+            type="tel"
             label="טלפון"
+            required
             error={Boolean(fieldState.error)}
             helperText={fieldState.error?.message}
           />
         )}
       />
-      {withBusinessName ? (
+      {withInquiryType ? (
         <Controller
-          name="businessName"
+          name="email"
           control={control}
-          render={({ field }) => <TextField {...field} label="שם העסק / המקום" />}
+          render={({ field, fieldState }) => (
+            <TextField
+              {...field}
+              type="email"
+              label="אימייל"
+              error={Boolean(fieldState.error)}
+              helperText={fieldState.error?.message}
+            />
+          )}
         />
       ) : null}
+      <LeadExtraFields
+        control={control}
+        withBusinessName={withBusinessName}
+        withEventDetails={withEventDetails}
+        withInquiryType={withInquiryType}
+      />
       <Controller
         name="message"
         control={control}
-        render={({ field }) => <TextField {...field} label="פרטים נוספים" multiline minRows={3} />}
+        render={({ field }) => (
+          <TextField {...field} label="הערות / פרטים נוספים" multiline minRows={3} />
+        )}
       />
       <Box sx={Styles.actions}>
         <Button type="submit" variant="contained" disabled={isPending}>
@@ -81,12 +117,18 @@ const LeadForm: FC<LeadFormProps> = ({
           color="inherit"
           href={buildWhatsappLink(whatsappMessage)}
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label="שליחת הודעה בוואטסאפ (נפתח בחלון חדש)"
         >
           WhatsApp
         </Button>
       </Box>
-      {isSuccess ? <Typography sx={Styles.feedback}>הפנייה נשלחה — נחזור אליך.</Typography> : null}
-      {error ? <Typography sx={Styles.feedback}>{error.message}</Typography> : null}
+      <Box role="status" aria-live="polite">
+        {isSuccess ? (
+          <Typography sx={Styles.feedback}>הפנייה נשלחה — נחזור אליך.</Typography>
+        ) : null}
+        {error ? <Typography sx={Styles.feedback}>{error.message}</Typography> : null}
+      </Box>
     </Box>
   );
 };

@@ -1,52 +1,63 @@
-import { NONO_GALLERY } from '@components/business/business-page/BusinessPage.const';
+import { COLLABORATIONS } from '@components/collaborations/collaborations-page/CollaborationsPage.const';
+
+export type GalleryCategory = 'ALL' | 'PIZZAS' | 'EVENTS' | 'COLLABORATIONS' | 'TEVA';
 
 export type GalleryImage = {
   src: string;
   alt: string;
+  category: Exclude<GalleryCategory, 'ALL'>;
 };
 
-export type GalleryGroup = {
-  eyebrow: string;
-  title: string;
-  description: string;
-  images: GalleryImage[];
-};
-
-/** תמונות הפיצות המוגמרות. */
-const PIZZA_IMAGES: GalleryImage[] = [
-  { src: '/images/image-2.jpeg', alt: 'פיצה נאפוליטנית מהטאבון' },
-  { src: '/images/image-4.jpeg', alt: 'פיצה עם שוליים מנומרים' },
-  { src: '/images/image-6.jpeg', alt: 'פיצה טרייה יוצאת מהאש' },
+export const GALLERY_FILTERS: { value: GalleryCategory; label: string }[] = [
+  { value: 'ALL', label: 'הכל' },
+  { value: 'PIZZAS', label: 'פיצות ואווירה' },
+  { value: 'EVENTS', label: 'אירועים פרטיים' },
+  { value: 'COLLABORATIONS', label: 'שיתופי פעולה' },
+  { value: 'TEVA', label: 'טבע' },
 ];
 
-/** תמונות מהתהליך — בצק והכנה. */
-const PROCESS_IMAGES: GalleryImage[] = [
-  { src: '/images/image-7.jpeg', alt: 'בצק בתסיסה ארוכה' },
-  { src: '/images/image-8.jpeg', alt: 'פתיחת הבצק ביד' },
-  { src: '/images/image-9.jpeg', alt: 'הפיצה בהכנה לפני הטאבון' },
+const ROOT_ALTS = [
+  'להבות הטאבון',
+  'בצק בפתיחה ידנית',
+  'פיצה נאפוליטנית בתקריב',
+  'פיצה עם שוליים מנומרים',
+  'חומרי גלם טריים',
+  'פיצה טרייה יוצאת מהאש',
+  'בצק בתסיסה ארוכה',
+  'פתיחת הבצק ביד',
+  'פיצה לפני הכנסה לטאבון',
+  'אווירה ליד הטאבון',
+  'פיצה מוכנה להגשה',
 ];
 
-/**
- * קבוצות הגלריה — כל שצריך כדי להוסיף תמונות הוא להוסיף פריטים למערך.
- * קבוצה ריקה לא מוצגת כלל, ולכן אפשר להשאיר מקום לתמונות שטרם הגיעו.
- */
-export const GALLERY_GROUPS: GalleryGroup[] = [
+const PIZZA_IMAGES: GalleryImage[] = ROOT_ALTS.map((alt, index) => ({
+  src: `/images/image-${index + 1}.jpeg`,
+  alt,
+  category: 'PIZZAS',
+}));
+
+const EVENT_IMAGES: GalleryImage[] = Array.from({ length: 26 }, (_, index) => ({
+  src: `/images/business/private-events/private-event-${index + 1}.jpeg`,
+  alt: `אירוע פרטי של Cornicione, תמונה ${index + 1}`,
+  category: 'EVENTS',
+}));
+
+const COLLABORATION_IMAGES: GalleryImage[] = COLLABORATIONS.flatMap((item) =>
+  item.images.map((image) => ({ ...image, category: 'COLLABORATIONS' as const })),
+);
+
+const TEVA_IMAGES: GalleryImage[] = [
   {
-    eyebrow: 'הפיצות',
-    title: 'מהטאבון',
-    description: 'שוליים מנומרים, מרקם פתוח ורגע אחד מדויק של אש.',
-    images: PIZZA_IMAGES,
+    src: '/images/about/teva/teva-1.jpg',
+    alt: 'טבע, בעל ויוצר Cornicione, בעבודה',
+    category: 'TEVA',
   },
-  {
-    eyebrow: 'Nono',
-    title: 'ערבי פיצה ב־Nono',
-    description: 'תיעוד מהערבים בבית הקפה — הטאבון, העבודה, הקהל והאווירה.',
-    images: NONO_GALLERY,
-  },
-  {
-    eyebrow: 'התהליך',
-    title: 'הבצק והעבודה',
-    description: 'תסיסה ארוכה, פתיחה ביד וכל מה שקורה לפני שהפיצה נכנסת לאש.',
-    images: PROCESS_IMAGES,
-  },
+];
+
+/** כל תמונות האתר במקום אחד — לשורש `/images` ולתיקיות המשנה. */
+export const GALLERY_IMAGES: GalleryImage[] = [
+  ...PIZZA_IMAGES,
+  ...TEVA_IMAGES,
+  ...EVENT_IMAGES,
+  ...COLLABORATION_IMAGES,
 ];

@@ -76,6 +76,14 @@ const poem: SxProps<Theme> = {
   lineHeight: 2,
 };
 
+const actions: SxProps<Theme> = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  gap: { xs: 3, md: 5 },
+  mt: 6,
+};
+
 const scrollLine: SxProps<Theme> = {
   position: 'absolute',
   bottom: 24,
@@ -96,6 +104,7 @@ const Styles = {
   signature,
   script,
   poem,
+  actions,
   scrollLine,
 };
 

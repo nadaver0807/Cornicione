@@ -8,6 +8,9 @@ export const create = (payload: CreateLeadPayload): Promise<Lead> =>
     phone: payload.phone,
     email: payload.email ?? '',
     businessName: payload.businessName ?? '',
+    eventDate: payload.eventDate ?? '',
+    guestCount: payload.guestCount ?? '',
+    location: payload.location ?? '',
     message: payload.message ?? '',
   }).save();
 

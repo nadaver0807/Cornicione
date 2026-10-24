@@ -27,6 +27,7 @@ const PrivateEventsPage: FC = () => (
             component="img"
             src={image.src}
             alt={image.alt}
+            loading="lazy"
             sx={Styles.galleryImage}
           />
         ))}
@@ -40,13 +41,14 @@ const PrivateEventsPage: FC = () => (
     <PageSection>
       <Box sx={Styles.ctaBox}>
         <Typography variant="h2" gutterBottom>
-          Book Your Event
+          הזמנת אירוע פרטי
         </Typography>
         <Typography sx={Styles.paragraph}>השאירו פרטים ונחזור אליכם.</Typography>
         <Box sx={Styles.formWrapper}>
           <LeadForm
             leadType={LeadType.PrivateEvent}
             submitLabel="שליחת פרטים"
+            withEventDetails
             whatsappMessage={WHATSAPP_MESSAGE.privateEvent}
           />
         </Box>

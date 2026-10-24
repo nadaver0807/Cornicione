@@ -15,7 +15,7 @@ const DEFAULT_VALUES: UpdateOpeningHoursPayload = {
   weekday: Weekday.Thursday,
   openTime: '17:00',
   closeTime: '22:00',
-  isActive: true,
+  isOrderingEnabled: false,
   closedMessage: '',
 };
 
@@ -34,9 +34,9 @@ export const useAdminHoursForm = () => {
       return;
     }
 
-    const { weekday, openTime, closeTime, isActive, closedMessage } = data.openingHours;
+    const { weekday, openTime, closeTime, isOrderingEnabled, closedMessage } = data.openingHours;
 
-    reset({ weekday, openTime, closeTime, isActive, closedMessage });
+    reset({ weekday, openTime, closeTime, isOrderingEnabled, closedMessage });
   }, [data, reset]);
 
   const onSubmit = handleSubmit(async (values) => {

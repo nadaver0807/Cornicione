@@ -31,8 +31,10 @@ const link: SxProps<Theme> = {
   '&:hover': { color: 'text.primary' },
 };
 
+const phone: SxProps<Theme> = { mt: 1.5, color: 'text.secondary', direction: 'ltr' };
+
 const copyright: SxProps<Theme> = { color: 'text.secondary', fontSize: '0.75rem', mt: 4 };
 
-const Styles = { footer, title, links, link, copyright };
+const Styles = { footer, title, links, link, phone, copyright };
 
 export default Styles;

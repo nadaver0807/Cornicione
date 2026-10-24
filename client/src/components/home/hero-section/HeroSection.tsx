@@ -1,8 +1,9 @@
 import { HERO_VIDEO } from '@components/home/hero-section/HeroSection.const';
 import Styles from '@components/home/hero-section/HeroSection.style';
-import { LEAD_SECTION_ANCHOR } from '@components/home/home-lead-section/lead-select.util';
+import AppLink from '@components/shared/app-link/AppLink';
 import SectionStyles from '@components/shared/section-header/SectionHeader.style';
 import { Box, Typography } from '@mui/material';
+import { Route } from '@shared/enums/route.enum';
 import { type FC } from 'react';
 
 /** מסך פתיחה קולנועי: וידאו מוחשך, לוגו, שורות שירה ולינק עדין להזמנה. */
@@ -38,12 +39,13 @@ const HeroSection: FC = () => (
         <br />
         חומרי גלם מובחרים, עבודת יד ודיוק באפייה בטאבון משלימים את החוויה.
       </Typography>
-      <Box
-        component="a"
-        href={`#${LEAD_SECTION_ANCHOR}`}
-        sx={[SectionStyles.underlineLink, { mt: 6 }]}
-      >
-        להזמנת אירוע או לפרטים נוספים
+      <Box sx={Styles.actions}>
+        <AppLink href={Route.Menu} sx={SectionStyles.underlineLink}>
+          להזמנת טייקאווי
+        </AppLink>
+        <AppLink href={Route.PrivateEvents} sx={SectionStyles.underlineLink}>
+          להזמנת אירוע פרטי
+        </AppLink>
       </Box>
     </Box>
     <Box sx={Styles.scrollLine} />

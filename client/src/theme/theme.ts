@@ -37,7 +37,38 @@ const theme = createTheme(
       button: { textTransform: 'none', fontWeight: 500, letterSpacing: '0.04em' },
     },
     components: {
-      MuiCssBaseline: { styleOverrides: { body: { backgroundColor: BG, color: TEXT } } },
+      MuiCssBaseline: {
+        styleOverrides: {
+          html: { fontSize: 'var(--a11y-font-size, 100%)' },
+          body: { backgroundColor: BG, color: TEXT },
+          ':focus-visible': { outline: `2px solid ${CREAM_BTN}`, outlineOffset: '3px' },
+          'html[data-a11y-contrast="true"]': {
+            '--a11y-line': '#FFFFFF',
+            body: { backgroundColor: '#000000', color: '#FFFFFF' },
+            'p, span, a, label, li, h1, h2, h3, h4, .MuiTypography-root': {
+              color: '#FFFFFF !important',
+            },
+            a: { textDecoration: 'underline' },
+            '.MuiPaper-root, .MuiAppBar-root': {
+              backgroundColor: '#000000 !important',
+              border: '1px solid #FFFFFF',
+            },
+            img: { filter: 'contrast(1.1)' },
+          },
+          'html[data-a11y-motion="false"] *, html[data-a11y-motion="false"] *::before, html[data-a11y-motion="false"] *::after':
+            {
+              animation: 'none !important',
+              transition: 'none !important',
+              scrollBehavior: 'auto !important',
+            },
+          '@media (prefers-reduced-motion: reduce)': {
+            '*, *::before, *::after': {
+              animation: 'none !important',
+              transition: 'none !important',
+            },
+          },
+        },
+      },
       MuiButtonBase: { defaultProps: { disableRipple: true } },
       MuiButton: {
         defaultProps: { disableElevation: true, disableRipple: true },

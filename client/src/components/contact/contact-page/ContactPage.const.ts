@@ -18,6 +18,12 @@ export const CONTACT_DETAILS: ContactDetail[] = [
     isExternal: true,
   },
   {
+    label: 'איסוף עצמי',
+    value: 'פרטי המיקום יישלחו עם אישור ההזמנה',
+    href: buildWhatsappLink(WHATSAPP_MESSAGE.general),
+    isExternal: true,
+  },
+  {
     label: 'קבוצת עדכונים',
     value: 'הצטרפות לקבוצה',
     href: SITE.social.whatsappGroup,

@@ -8,8 +8,8 @@ export type OpeningHours = {
   openTime: string;
   /** שעת סגירה בפורמט `HH:mm`. */
   closeTime: string;
-  /** כיבוי ידני — סוגר את ההזמנות גם ביום הפעילות. */
-  isActive: boolean;
+  /** מתג ההזמנות — נשלט על ידי המנהלן, סגור כברירת מחדל. */
+  isOrderingEnabled: boolean;
   /** הודעה שתוצג ללקוח כשסגור, למשל בגלל חופשה. */
   closedMessage: string;
 };

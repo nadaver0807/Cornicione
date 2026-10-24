@@ -28,7 +28,7 @@ orderRouter.post(
   ) => {
     // חסימה בשרת — האתר חוסם גם בצד הלקוח, אך זאת ההגנה הקובעת.
     const openingHours = await findCurrent();
-    const status = resolveOpeningStatus(openingHours, new Date());
+    const status = resolveOpeningStatus(openingHours);
 
     if (!status.isOpen) {
       response.status(StatusCodes.CONFLICT).json({ message: status.message });

@@ -28,12 +28,12 @@ const AdminHoursForm: FC = () => {
   }
 
   return (
-    <Box component='form' onSubmit={onSubmit} sx={Styles.form}>
+    <Box component="form" onSubmit={onSubmit} sx={Styles.form}>
       <Controller
-        name='weekday'
+        name="weekday"
         control={control}
         render={({ field }) => (
-          <TextField {...field} select label='יום הפעילות'>
+          <TextField {...field} select label="יום הפעילות">
             {WEEKDAYS.map((day) => (
               <MenuItem key={day} value={day}>
                 {WEEKDAY_LABEL[day]}
@@ -44,13 +44,13 @@ const AdminHoursForm: FC = () => {
       />
       <Box sx={Styles.row}>
         <Controller
-          name='openTime'
+          name="openTime"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              type='time'
-              label='שעת פתיחה'
+              type="time"
+              label="שעת פתיחה"
               fullWidth
               error={Boolean(fieldState.error)}
               helperText={fieldState.error?.message}
@@ -58,13 +58,13 @@ const AdminHoursForm: FC = () => {
           )}
         />
         <Controller
-          name='closeTime'
+          name="closeTime"
           control={control}
           render={({ field, fieldState }) => (
             <TextField
               {...field}
-              type='time'
-              label='שעת סגירה'
+              type="time"
+              label="שעת סגירה"
               fullWidth
               error={Boolean(fieldState.error)}
               helperText={fieldState.error?.message}
@@ -73,29 +73,29 @@ const AdminHoursForm: FC = () => {
         />
       </Box>
       <Controller
-        name='isActive'
+        name="isOrderingEnabled"
         control={control}
         render={({ field }) => (
           <FormControlLabel
             control={<Switch checked={field.value} onChange={field.onChange} />}
-            label='מקבלים הזמנות'
+            label="הזמנות טייקאווי פתוחות"
           />
         )}
       />
       <Controller
-        name='closedMessage'
+        name="closedMessage"
         control={control}
         render={({ field }) => (
           <TextField
             {...field}
-            label='הודעה כשסגור'
-            placeholder='לא חובה — למשל: חוזרים בשבוע הבא'
+            label="הודעה כשסגור"
+            placeholder="לא חובה — למשל: חוזרים בשבוע הבא"
             multiline
             minRows={2}
           />
         )}
       />
-      <Button type='submit' variant='contained' disabled={isSaving}>
+      <Button type="submit" variant="contained" disabled={isSaving}>
         שמירה
       </Button>
       {isSuccess ? <Typography sx={Styles.feedback}>השעות עודכנו.</Typography> : null}

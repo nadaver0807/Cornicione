@@ -48,6 +48,7 @@ const ContactPage: FC = () => (
           <LeadForm
             leadType={LeadType.General}
             submitLabel='שליחה'
+            withInquiryType
             whatsappMessage={WHATSAPP_MESSAGE.general}
           />
         </Box>
